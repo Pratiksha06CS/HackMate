@@ -8,13 +8,21 @@
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
+
   gap: 40px;
 
   padding: 20px 70px 0;
 
-  background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 45%, #ffffff 100%);
+  background: linear-gradient(
+    135deg,
+    #f8fbff 0%,
+    #eef4ff 45%,
+    #ffffff 100%
+  );
+
   overflow: hidden;
 }
+
 
 /* ===========================
    LEFT CONTENT
@@ -63,64 +71,136 @@
   margin-bottom: 30px;
 }
 
+
 /* ===========================
-   BUTTONS
+   HERO BUTTONS
 =========================== */
 
 .hero-buttons {
   display: flex;
-  gap: 16px;
 
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 28px;
+
+  margin-top: 28px;
   margin-bottom: 36px;
+
+  width: fit-content;
 }
 
-.primary-btn,
-.secondary-btn {
-  padding: 14px 22px;
+
+/* Both buttons */
+
+.hero-buttons .primary-btn,
+.hero-buttons .secondary-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: auto !important;
+  min-width: 0;
+
+  flex: 0 0 auto;
+
+  margin: 0 !important;
+
+  box-sizing: border-box;
+
+  white-space: nowrap;
+
+  padding: 14px 28px;
 
   border-radius: 12px;
 
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
+
+  text-decoration: none;
 
   cursor: pointer;
 
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
-.primary-btn {
-  display: flex;
+
+/* ===========================
+   GET STARTED BUTTON
+=========================== */
+
+.hero-buttons .primary-btn {
+  display: inline-flex;
+
   align-items: center;
+  justify-content: center;
+
   gap: 10px;
 
   border: none;
 
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+
   color: #ffffff;
 
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-
-  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.25);
+  box-shadow:
+    0 12px 25px rgba(37, 99, 235, 0.25);
 }
 
-.primary-btn:hover {
+.hero-buttons .primary-btn:hover {
   transform: translateY(-2px);
 
-  box-shadow: 0 18px 34px rgba(37, 99, 235, 0.32);
+  box-shadow:
+    0 16px 30px rgba(37, 99, 235, 0.32);
 }
 
-.secondary-btn {
+
+/* Arrow */
+
+.hero-buttons .primary-btn svg {
+  font-size: 16px;
+
+  transition: transform 0.3s ease;
+}
+
+.hero-buttons .primary-btn:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* ===========================
+   EXPLORE TEAMS BUTTON
+=========================== */
+
+.hero-buttons .secondary-btn {
   border: 1px solid #cbd5e1;
 
-  background: rgba(255, 255, 255, 0.75);
+  background: #ffffff;
 
   color: #0f172a;
 }
 
-.secondary-btn:hover {
-  background: #ffffff;
-
+.hero-buttons .secondary-btn:hover {
   transform: translateY(-2px);
+
+  border-color: #2563eb;
+
+  color: #2563eb;
+
+  box-shadow:
+    0 10px 22px rgba(15, 23, 42, 0.08);
 }
+
 
 /* ===========================
    TRUSTED BY
@@ -138,7 +218,9 @@
 
 .college-list {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 10px;
 }
 
@@ -158,32 +240,44 @@
   font-size: 14px;
 }
 
+
 /* ===========================
    RIGHT SIDE PANEL
 =========================== */
 
 .hero-visual {
   display: flex;
+
   justify-content: center;
   align-items: center;
 }
 
 .hackathon-panel {
   width: 460px;
+
   background: rgba(255, 255, 255, 0.78);
+
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
   border: 1px solid rgba(226, 232, 240, 0.8);
+
   border-radius: 22px;
 
   padding: 20px;
 
-  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+  box-shadow:
+    0 18px 36px rgba(15, 23, 42, 0.08);
 }
+
+
+/* ===========================
+   PANEL HEADER
+=========================== */
 
 .panel-header {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
 
@@ -192,111 +286,25 @@
 
 .panel-header h3 {
   color: #0f172a;
+
   font-size: 24px;
   font-weight: 700;
 }
 
 .live-dot {
   background: #ef4444;
-  color: white;
+
+  color: #ffffff;
 
   font-size: 11px;
   font-weight: 700;
 
   padding: 6px 10px;
+
   border-radius: 999px;
 }
 
-/* Compact Cards */
 
-.hackathon-card {
-  background: #ffffff;
-
-  border: 1px solid #e2e8f0;
-  border-radius: 18px;
-
-  padding: 16px;
-
-  margin-bottom: 14px;
-
-  transition: all 0.3s ease;
-}
-
-.hackathon-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.10);
-}
-
-.hackathon-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 10px;
-}
-
-.badge {
-  background: #dbeafe;
-  color: #1d4ed8;
-
-  font-size: 11px;
-  font-weight: 700;
-
-  padding: 5px 10px;
-  border-radius: 999px;
-}
-
-.time {
-  color: #f59e0b;
-
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.hackathon-card h4 {
-  color: #0f172a;
-
-  font-size: 20px;
-  line-height: 1.3;
-
-  margin-bottom: 6px;
-}
-
-.hackathon-card p {
-  color: #64748b;
-
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-/* Minimal Link */
-
-.view-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  text-decoration: none;
-
-  color: #2563eb;
-  font-weight: 700;
-  font-size: 15px;
-
-  margin-top: 6px;
-
-  transition: gap 0.3s ease;
-}
-
-.view-link:hover {
-  gap: 14px;
-}
-
-@media (max-width: 992px) {
-  .hackathon-panel {
-    width: 100%;
-    max-width: 460px;
-  }
-}
 /* ===========================
    HACKATHON CARDS
 =========================== */
@@ -312,17 +320,26 @@
 
   margin-bottom: 12px;
 
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .hackathon-card:hover {
   transform: translateY(-3px);
 
-  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.10);
+  box-shadow:
+    0 12px 24px rgba(37, 99, 235, 0.1);
 }
+
+
+/* ===========================
+   CARD TOP
+=========================== */
 
 .hackathon-top {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
 
@@ -350,6 +367,11 @@
   font-size: 13px;
 }
 
+
+/* ===========================
+   CARD CONTENT
+=========================== */
+
 .hackathon-card h4 {
   color: #0f172a;
 
@@ -363,11 +385,19 @@
 
   font-size: 13px;
 
+  line-height: 1.5;
+
   margin-bottom: 10px;
 }
 
+
+/* ===========================
+   CARD META
+=========================== */
+
 .meta {
   display: flex;
+
   justify-content: space-between;
 
   font-size: 12px;
@@ -375,8 +405,39 @@
   color: #475569;
 }
 
+
 /* ===========================
-   EXPLORE BUTTON
+   VIEW LINK
+=========================== */
+
+.view-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  text-decoration: none;
+
+  color: #2563eb;
+
+  font-weight: 700;
+
+  font-size: 15px;
+
+  margin-top: 6px;
+
+  transition:
+    gap 0.3s ease;
+}
+
+.view-link:hover {
+  gap: 14px;
+}
+
+
+/* ===========================
+   EXPLORE ALL HACKATHONS
 =========================== */
 
 .explore-btn {
@@ -388,7 +449,11 @@
 
   border-radius: 12px;
 
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
 
   color: #ffffff;
 
@@ -399,27 +464,64 @@
 
   margin-top: 4px;
 
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .explore-btn:hover {
   transform: translateY(-2px);
 
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+  box-shadow:
+    0 10px 20px rgba(37, 99, 235, 0.25);
 }
 
+
 /* ===========================
-   RESPONSIVE
+   TABLET
+=========================== */
+
+@media (max-width: 1100px) {
+
+  .hero {
+    grid-template-columns: 1fr 0.9fr;
+
+    gap: 25px;
+
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .hackathon-panel {
+    width: 100%;
+
+    max-width: 420px;
+  }
+}
+
+
+/* ===========================
+   MOBILE / TABLET
 =========================== */
 
 @media (max-width: 992px) {
 
   .hero {
+    min-height: auto;
+
     grid-template-columns: 1fr;
 
     text-align: center;
 
-    padding: 40px 24px;
+    padding: 60px 24px;
   }
 
   .hero-content {
@@ -430,18 +532,119 @@
     font-size: 48px;
   }
 
-  .hero-buttons,
+  .hero-buttons {
+    justify-content: center;
+
+    width: 100%;
+
+    gap: 24px;
+  }
+
   .college-list {
     justify-content: center;
   }
 
-  .hackathon-panel {
-    width: 100%;
-    max-width: 380px;
+  .hero-visual {
+    margin-top: 20px;
   }
 
-  .primary-btn,
-.secondary-btn {
-  text-decoration: none;
+  .hackathon-panel {
+    width: 100%;
+
+    max-width: 460px;
+
+    margin: 0 auto;
+  }
 }
+
+
+/* ===========================
+   SMALL MOBILE
+=========================== */
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding: 45px 20px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+
+    line-height: 1.08;
+  }
+
+  .hero p {
+    font-size: 16px;
+
+    line-height: 1.6;
+  }
+
+  .hero-badge {
+    font-size: 13px;
+
+    padding: 7px 13px;
+  }
+
+  .hero-buttons {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 14px;
+  }
+
+  .hero-buttons .primary-btn,
+  .hero-buttons .secondary-btn {
+    width: auto !important;
+
+    min-width: 190px;
+  }
+
+  .college-list {
+    gap: 8px;
+  }
+
+  .college-list div {
+    padding: 7px 12px;
+
+    font-size: 13px;
+  }
+
+  .hackathon-panel {
+    padding: 16px;
+
+    border-radius: 18px;
+  }
+
+  .panel-header h3 {
+    font-size: 20px;
+  }
+}
+
+
+/* ===========================
+   EXTRA SMALL MOBILE
+=========================== */
+
+@media (max-width: 400px) {
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero-buttons {
+    gap: 12px;
+  }
+
+  .hero-buttons .primary-btn,
+  .hero-buttons .secondary-btn {
+    width: 100% !important;
+  }
+
+  .hackathon-card h4 {
+    font-size: 16px;
+  }
 }
