@@ -1,0 +1,136 @@
+/* ===========================
+   STATS SECTION
+=========================== */
+
+.stats {
+  padding: 50px 70px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.stats-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 28px;
+}
+
+.stats-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.stats-header h2 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.stats-header p {
+  color: #cbd5e1;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+
+  padding: 24px 18px;
+  text-align: center;
+
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.25);
+}
+
+/* ===========================
+   ICON
+=========================== */
+
+.stat-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 16px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+  color: white;
+  font-size: 24px;
+}
+
+/* ===========================
+   TEXT
+=========================== */
+
+.stat-card h3 {
+  font-size: 36px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.stat-card p {
+  color: #cbd5e1;
+  font-size: 15px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 992px) {
+  .stats {
+    padding: 40px 24px;
+  }
+
+  .stats-header h2 {
+    font-size: 34px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

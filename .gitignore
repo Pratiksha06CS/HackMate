@@ -1,0 +1,26 @@
+# Java / Maven
+target/
+*.class
+*.jar
+
+# Maven Wrapper
+.mvn/
+
+# Spring Boot
+logs/
+*.log
+
+# Node.js / React
+node_modules/
+dist/
+
+# Environment Variables
+.env
+
+# IDE Files
+.vscode/
+.idea/
+
+# Operating System
+.DS_Store
+Thumbs.db
