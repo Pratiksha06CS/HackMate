@@ -1,10 +1,78 @@
 import "./Login.css";
 import { FaRocket, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+
+    setError("");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setError("");
+
+    try {
+      setLoading(true);
+
+      const response = await axios.post(
+        "http://localhost:8080/api/auth/login",
+        {
+          email: formData.email,
+          password: formData.password
+        }
+      );
+
+      // Get login response
+      const data = response.data;
+
+      // Save JWT token
+      localStorage.setItem("token", data.token);
+
+      // Save user information
+      localStorage.setItem("userName", data.name);
+      localStorage.setItem("userEmail", data.email);
+
+      // Redirect after successful login
+      navigate("/dashboard");
+
+    } catch (err) {
+      if (err.response) {
+        setError(
+          typeof err.response.data === "string"
+            ? err.response.data
+            : "Invalid email or password."
+        );
+      } else {
+        setError(
+          "Unable to connect to the server. Please make sure Spring Boot is running."
+        );
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="login-page">
@@ -20,14 +88,11 @@ function Login() {
         {/* Header */}
         <div className="login-header">
           <h1>Welcome back</h1>
-
-          <p>
-            Sign in to continue finding your perfect team.
-          </p>
+          <p>Login to continue finding your perfect hackathon team.</p>
         </div>
 
-        {/* Form */}
-        <form className="login-form">
+        {/* Login Form */}
+        <form className="login-form" onSubmit={handleSubmit}>
 
           {/* Email */}
           <div className="form-group">
@@ -35,69 +100,61 @@ function Login() {
 
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Enter your email"
+              required
             />
           </div>
 
           {/* Password */}
           <div className="form-group">
-
-            <div className="password-label">
-              <label>Password</label>
-
-              <a href="#">
-                Forgot password?
-              </a>
-            </div>
+            <label>Password</label>
 
             <div className="password-input">
 
               <input
                 type={showPassword ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Enter your password"
+                required
               />
 
               <button
                 type="button"
-                onClick={() =>
-                  setShowPassword(!showPassword)
-                }
+                onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
 
             </div>
-
           </div>
 
-          {/* Remember Me */}
-          <label className="remember-me">
+          {/* Error */}
+          {error && (
+            <div className="form-error">
+              {error}
+            </div>
+          )}
 
-            <input type="checkbox" />
-
-            <span>Remember me</span>
-
-          </label>
-
-          {/* Login */}
+          {/* Login Button */}
           <button
             type="submit"
             className="login-submit"
+            disabled={loading}
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
 
         </form>
 
-        {/* Register */}
+        {/* Register Link */}
         <div className="register-link">
-
           Don't have an account?
-
-          <Link to="/register">
-            {" "}Create Account
-            </Link>
-
+          <Link to="/register">{" "}Create Account</Link>
         </div>
 
       </div>
