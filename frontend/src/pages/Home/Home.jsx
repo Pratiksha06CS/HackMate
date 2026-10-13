@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Hero from "../../components/Hero/Hero";
 import Features from "../../components/Features/Features";
 import Stats from "../../components/Stats/Stats";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import Footer from "../../components/Footer/Footer";
+
 
 function Home() {
   return (

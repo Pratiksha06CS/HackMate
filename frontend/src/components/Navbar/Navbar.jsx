@@ -5,29 +5,33 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="navbar">
-
-      <div className="logo">
-
+      {/* Logo */}
+      <Link to="/" className="logo">
         <FaRocket className="logo-icon" />
-
         <span>HackMate</span>
+      </Link>
 
-      </div>
-
+      {/* Navigation links */}
       <ul className="nav-links">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
 
-        <li><a href="#">Home</a></li>
+        <li>
+          <Link to="/dashboard">Teams</Link>
+        </li>
 
-        <li><a href="#">Teams</a></li>
+        <li>
+          <Link to="/hackathons">Hackathons</Link>
+        </li>
 
-        <li><a href="#">Hackathons</a></li>
-
-        <li><a href="#">About</a></li>
-
+        <li>
+          <Link to="/about">About</Link>
+        </li>
       </ul>
 
+      {/* Authentication buttons */}
       <div className="nav-buttons">
-
         <Link to="/login" className="login-btn">
           Login
         </Link>
@@ -35,9 +39,7 @@ function Navbar() {
         <Link to="/register" className="register-btn">
           Get Started
         </Link>
-
       </div>
-
     </nav>
   );
 }
