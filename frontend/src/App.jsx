@@ -4,10 +4,13 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import About from "./pages/About/About";
-
+import Features from "./pages/Features/Features";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile/Profile";
+import HowItWorks from "./pages/HowItWorks/HowItWorks";
+import Hackathons from "./pages/Hackathons/Hackathons";
+
 
 function App() {
   return (
@@ -17,7 +20,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/hackathons" element={<Hackathons />} />
+        
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />

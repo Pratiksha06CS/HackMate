@@ -13,23 +13,26 @@ function Navbar() {
 
       {/* Navigation links */}
       <ul className="nav-links">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
+  <li>
+    <Link to="/">Home</Link>
+  </li>
 
-        <li>
-          <Link to="/dashboard">Teams</Link>
-        </li>
+  <li>
+    <Link to="/how-it-works">How It Works</Link>
+  </li>
 
-        <li>
-          <Link to="/hackathons">Hackathons</Link>
-        </li>
+  <li>
+    <Link to="/about">About</Link>
+  </li>
 
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
+  <li>
+    <Link to="/features">Features</Link>
+  </li>
 
+  <li>
+    <Link to="/hackathons">Hackathons</Link>
+  </li>
+</ul>
       {/* Authentication buttons */}
       <div className="nav-buttons">
         <Link to="/login" className="login-btn">
