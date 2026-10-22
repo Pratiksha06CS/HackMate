@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile/Profile";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import Hackathons from "./pages/Hackathons/Hackathons";
+import FAQ from "./pages/FAQ/FAQ";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/features" element={<Features />} />
         <Route path="/hackathons" element={<Hackathons />} />
-        
+        <Route path="/faq" element={<FAQ />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
